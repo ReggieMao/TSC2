@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="29dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="23dp">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="24dp"
+                android:layout_alignParentBottom="true"
+                android:src="@mipmap/notice"/>
+
+            <ImageView
+                android:id="@+id/img_point"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/bg_round_view_red1"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="27dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/system_notice"
+                    android:textSize="16sp"
+                    android:textColor="@color/title"/>
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#999999"
+                    android:textSize="12sp"
+                    android:gravity="right"
+                    android:layout_gravity="center_vertical"/>
+                
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+
+</LinearLayout>

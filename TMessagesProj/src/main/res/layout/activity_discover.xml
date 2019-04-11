@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7">
+
+    <View
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/cC5"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#F7F7F7">
+
+        <RelativeLayout
+            android:id="@+id/img_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="9dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/back" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_back"
+            android:layout_marginLeft="18dp"
+            android:text="@string/found"
+            android:textColor="@color/title"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guess_record"
+            android:textColor="@color/c66"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <WebView
+            android:id="@+id/web"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/tv_mx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/mx_no"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/building"
+                android:textColor="@color/c66"
+                android:textSize="15sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_gray"/>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F7F7F7"
+            android:orientation="horizontal"
+            android:layout_below="@+id/view"
+            android:weightSum="4">
+
+            <RadioButton
+                android:id="@+id/rb_chats"
+                style="@style/TabButton"
+                android:drawableTop="@mipmap/tab_wallet_normal"
+                android:layout_marginTop="7dp"
+                android:text="@string/chats"
+                android:textSize="11sp"
+                android:textColor="@color/textGray"/>
+
+            <RadioButton
+                android:id="@+id/rb_contacts"
+                style="@style/TabButton"
+                android:drawableTop="@mipmap/tab_mineral_normal"
+                android:layout_marginTop="7dp"
+                android:text="@string/address_book"
+                android:textSize="11sp"
+                android:textColor="@color/textGray"/>
+
+            <RadioButton
+                android:id="@+id/rb_found"
+                style="@style/TabButton"
+                android:drawableTop="@mipmap/tab_message_press"
+                android:layout_marginTop="7dp"
+                android:text="@string/found"
+                android:textSize="11sp"
+                android:textColor="@color/textBlue"/>
+
+            <RadioButton
+                android:id="@+id/rb_mine"
+                style="@style/TabButton"
+                android:drawableTop="@mipmap/tab_my_normal"
+                android:layout_marginTop="7dp"
+                android:text="@string/mine"
+                android:textSize="11sp"
+                android:textColor="@color/textGray"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+</LinearLayout>

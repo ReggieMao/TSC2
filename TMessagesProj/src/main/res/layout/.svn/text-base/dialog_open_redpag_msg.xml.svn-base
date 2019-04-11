@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="430dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/red_open_bg">
+
+        <RelativeLayout
+            android:id="@+id/img_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="63dp"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/close"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <com.ebei.ui.Components.BackupImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp"/>
+
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_avatar"
+            android:text=""
+            android:textColor="@color/cEECC90"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_nickname"
+            android:textColor="@color/cEECC90"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cEECC90"
+            android:textSize="15sp"
+            android:text="@string/red_ling_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

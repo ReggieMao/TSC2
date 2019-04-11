@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "289018301705",
+    "firebase_url": "https://tsc2-6fd3a.firebaseio.com",
+    "project_id": "tsc2-6fd3a",
+    "storage_bucket": "tsc2-6fd3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289018301705:android:60ff3e8140dd4716",
+        "android_client_info": {
+          "package_name": "com.ebei.tsc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289018301705-avdf30dn8u1jgqto2m4sp58h5omrbrgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAygiHW9_Gug49Tp7-O5Lx0JyxRagPKWIM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

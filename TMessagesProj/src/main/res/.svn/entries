@@ -1,0 +1,101 @@
+10
+
+dir
+1600
+svn://47.93.220.40:9999/%E9%A1%B9%E7%9B%AE%E5%88%97%E8%A1%A8/TSC/%E5%BC%80%E5%8F%91%E7%AE%A1%E7%90%86/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/TSC2/TMessagesProj/src/main/res
+svn://47.93.220.40:9999/%E9%A1%B9%E7%9B%AE%E5%88%97%E8%A1%A8
+
+
+
+2019-04-09T08:12:19.054720Z
+1526
+maolj
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c6f38672-43b5-43a3-be75-a90310bde57d
+
+
+
+
+
+
+0
+
+anim
+dir
+
+drawable
+dir
+
+drawable-hdpi
+dir
+
+drawable-mdpi
+dir
+
+drawable-v21
+dir
+
+drawable-xhdpi
+dir
+
+drawable-xxhdpi
+dir
+
+drawable-xxxhdpi
+dir
+
+layout
+dir
+
+mipmap-hdpi
+dir
+
+mipmap-mdpi
+dir
+
+mipmap-xhdpi
+dir
+
+raw
+dir
+
+values
+dir
+
+values-sw600dp
+dir
+
+values-sw720dp
+dir
+
+values-v14
+dir
+
+values-v15
+dir
+
+values-v16
+dir
+
+values-v21
+dir
+
+values-v24
+dir
+
+xml
+dir
+

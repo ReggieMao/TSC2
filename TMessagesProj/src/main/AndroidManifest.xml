@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+    package="com.ebei.tsc"
+    android:installLocation="auto">
+
+    <supports-screens android:anyDensity="true"
+                      android:largeScreens="true"
+                      android:normalScreens="true"
+                      android:resizeable="true"
+                      android:smallScreens="true"
+                      android:xlargeScreens="true"/>
+
+    <permission
+        android:name="com.ebei.tsc.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.ebei.tsc.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.screen.PORTRAIT" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera2" android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS"/>
+
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <application
+        android:name="com.ebei.tsc.ApplicationLoader"
+        android:allowBackup="true"
+        android:hardwareAccelerated="@bool/useHardwareAcceleration"
+        android:icon="@mipmap/logo"
+        android:roundIcon="@mipmap/logo"
+        android:largeHeap="true"
+        android:theme="@style/Theme.TMessages.Start"
+        android:manageSpaceActivity="com.ebei.ui.ExternalActionActivity"
+        android:supportsRtl="false"
+        tools:replace="android:supportsRtl,android:allowBackup">
+
+        <!--极光相关-->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.ebei.tsc" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:process=":pushcore"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+        <provider
+            android:authorities="com.ebei.tsc.DataProvider"
+            android:name="cn.jpush.android.service.DataProvider"
+            android:process=":pushcore"
+            android:exported="false" />
+        <provider
+            android:authorities="com.ebei.tsc.DownloadProvider"
+            android:name="cn.jpush.android.service.DownloadProvider"
+            android:exported="true" />
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <category android:name="com.ebei.tsc" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" android:exported="false"/>
+        <receiver
+            android:name="com.ebei.service.JPushService"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <category android:name="com.ebei.tsc" />
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="2bbc42efe6906ac096acc3af" />
+
+        <!-- 微信相关-->
+        <activity
+            android:name="com.ebei.wxapi.WXEntryActivity"
+            android:label="@string/app_name"
+            android:exported="true" />
+
+        <!-- 项目本身相关-->
+        <!--android:launchMode="singleTask"-->
+        <activity
+            android:name="com.ebei.ui.LaunchActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="@bool/useHardwareAcceleration"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/vnd.com.ebei.tsc.android.profile"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="telegram.me" android:scheme="http" />
+                <data android:host="telegram.me" android:scheme="https" />
+                <data android:host="telegram.dog" android:scheme="http" />
+                <data android:host="telegram.dog" android:scheme="https" />
+                <data android:host="telesco.pe" android:scheme="http" />
+                <data android:host="telesco.pe" android:scheme="https" />
+                <data android:host="t.me" android:scheme="http" />
+                <data android:host="t.me" android:scheme="https" />
+            </intent-filter>
+            <intent-filter android:icon="@mipmap/logo" android:priority="1">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tg" />
+            </intent-filter>
+            <meta-data android:name="android.service.chooser.chooser_target_service" android:value=".TgChooserTargetService" />
+        </activity>
+        <activity
+            android:name="com.ebei.ui.ShareActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="@bool/useHardwareAcceleration"
+            android:windowSoftInputMode="adjustPan"
+            android:excludeFromRecents="true"
+            android:stateNotNeeded="true"
+            android:theme="@style/Theme.TMessages.Transparent">
+            <intent-filter android:icon="@mipmap/logo" android:priority="1">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tgb" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ebei.ui.ExternalActionActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="@bool/useHardwareAcceleration"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter android:icon="@mipmap/logo">
+                <action android:name="com.ebei.passport.AUTHORIZE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ebei.ui.IntroActivity"
+            android:launchMode="singleTask"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+        </activity>
+        <activity
+            android:name="com.ebei.tsc.OpenChatReceiver"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name="com.ebei.ui.PopupNotificationActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@style/Theme.TMessages.PopupNotification"
+            android:resizeableActivity="false"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+        <activity
+            android:name="com.ebei.ui.VoIPActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:windowSoftInputMode="adjustNothing"
+			android:taskAffinity="${applicationId}.voip">
+        </activity>
+        <activity android:name="com.ebei.ui.VoIPPermissionActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                  android:taskAffinity="${applicationId}.voip"
+                  android:excludeFromRecents="true"
+                android:theme="@style/Theme.TMessages.Transparent"/>
+        <activity android:name="com.ebei.ui.VoIPFeedbackActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+				  android:taskAffinity="${applicationId}.voip_feedback"
+                  android:excludeFromRecents="true"
+                  android:theme="@style/Theme.TMessages.TransparentWithAlerts"/>
+
+        <activity
+            android:name="com.ebei.ui.ScanCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.DiscoverActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.MineActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.TValueActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.VersionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.AppDownloadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.TRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.SystemNoticeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.PayPwd1Activity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.ebei.ui.PayPwd2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.ebei.ui.PayPwd3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.ebei.ui.PayPwd4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.ebei.ui.CollectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.MyTSCActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.TransferOutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.SendRedPacketActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.RedPacketRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.RedPacketReceiveActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.MineralCashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.TransToMineralActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.TSCMineralActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.RemainDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.UpdatePayPwdActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.RemainInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.ChatManagerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.FeedbackActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.CommonQuestionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.QuestionInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.NoticeInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.GuessRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.GuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.GamePlaneActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.WalletActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.MinalListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.TransferActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.fota.option.OptionSdkActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.DigitalOptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.DigitalInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.DigitalAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.DigitalCoinActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ebei.ui.DigitalRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <receiver
+            android:name="com.ebei.tsc.AutoMessageHeardReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.ebei.tsc.ACTION_MESSAGE_HEARD"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.ebei.tsc.AutoMessageReplyReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.ebei.tsc.ACTION_MESSAGE_REPLY"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.ebei.tsc.CallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.ebei.tsc.SmsListener">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.provider.Telephony.NEW_OUTGOING_SMS" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.ebei.tsc.AuthenticatorService" android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/auth"/>
+        </service>
+
+        <service android:name="com.ebei.tsc.ContactsSyncAdapterService" android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_contacts" />
+            <meta-data android:name="android.provider.CONTACTS_STRUCTURE"
+                android:resource="@xml/contacts" />
+        </service>
+
+        <service
+            android:name="com.ebei.tsc.TgChooserTargetService"
+            android:label="@string/AppName"
+            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.ebei.tsc.KeepAliveJob"
+                 android:exported="false"
+                 android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.ebei.tsc.BringAppForegroundService" android:enabled="true"/>
+        <service android:name="com.ebei.tsc.NotificationsService" android:enabled="true"/>
+        <service android:name="com.ebei.tsc.NotificationRepeat" android:exported="false"/>
+        <service android:name="com.ebei.tsc.ClearCacheService" android:exported="false"/>
+        <service android:name="com.ebei.tsc.VideoEncodingService" android:enabled="true"/>
+        <service android:name="com.ebei.tsc.LocationSharingService" android:enabled="true"/>
+        <service android:name="com.ebei.tsc.voip.VoIPService" android:enabled="true"/>
+        <service android:name="com.ebei.tsc.MusicPlayerService" android:exported="true" android:enabled="true"/>
+        <service android:name="com.ebei.tsc.MusicBrowserService" android:exported="true">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ebei.tsc.WearDataLayerListenerService">
+            <intent-filter>
+                <!-- listeners receive events that match the action and data filters -->
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+                <action android:name="com.google.android.gms.wearable.CAPABILITY_CHANGED" />
+                <action android:name="com.google.android.gms.wearable.CHANNEL_EVENT" />
+                <data android:scheme="wear" android:host="*" />
+            </intent-filter>
+        </service>
+        <service android:name="com.ebei.tsc.voip.TelegramConnectionService" android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE">
+            <intent-filter>
+                <action android:name="android.telecom.ConnectionService" />
+            </intent-filter>
+        </service>
+
+		<receiver android:name="com.ebei.tsc.MusicPlayerReceiver" >
+            <intent-filter>
+                <action android:name="com.ebei.android.musicplayer.close" />
+                <action android:name="com.ebei.android.musicplayer.pause" />
+                <action android:name="com.ebei.android.musicplayer.next" />
+                <action android:name="com.ebei.android.musicplayer.play" />
+                <action android:name="com.ebei.android.musicplayer.previous" />
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ebei.tsc.voip.VoIPMediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.ebei.tsc.AppStartReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="com.ebei.start" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.ebei.tsc.RefererReceiver" android:exported="true" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.ebei.tsc.WearReplyReceiver" android:enabled="true"/>
+
+        <receiver android:name="com.ebei.tsc.StopLiveLocationReceiver" android:enabled="true"/>
+
+        <receiver android:name="com.ebei.tsc.PopupReplyReceiver" android:enabled="true"/>
+
+        <receiver android:name="com.ebei.tsc.NotificationCallbackReceiver" android:enabled="true" android:exported="false"/>
+
+        <receiver android:name="com.ebei.tsc.ShareBroadcastReceiver" android:enabled="true"/>
+
+        <receiver android:name="com.ebei.tsc.CustomTabsCopyReceiver" android:enabled="true"/>
+
+        <receiver android:name="com.ebei.tsc.NotificationDismissReceiver" android:exported="false"/>
+
+        <receiver android:name="com.ebei.tsc.voip.VoIPActionsReceiver" android:exported="false"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false" />
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="632dp" />
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="598dp" />
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="632dp" />
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="598dp" />
+
+        <!--<meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />-->
+
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/ic_player" />
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc" />
+
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="face" />
+
+        <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
+        <meta-data android:name="android.max_aspect" android:value="2.5" />
+
+    </application>
+
+</manifest>
